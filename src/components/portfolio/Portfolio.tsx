@@ -3,7 +3,7 @@ import { motion, useInView, useMotionValue, useTransform, animate, AnimatePresen
 import {
   Menu, X, Github, Linkedin, Mail, Globe, ArrowUpRight, ArrowRight,
   Code2, Palette, Cpu, Star, MapPin, Download, ChevronUp,
-  Zap, Wrench, Sparkles, Layers, Rocket, Award, GraduationCap, Quote, Instagram, Facebook,
+  Zap, Wrench, Sparkles, Layers, Rocket, Award, GraduationCap, Instagram, Facebook,
 } from "lucide-react";
 import profileImg from "@/assets/my_pic.jpg";
 import resumePdf from "@/assets/NagarajaAcharya-Resume.pdf";
@@ -782,65 +782,6 @@ function Certifications() {
   );
 }
 
-/* ------------------------ Testimonials ------------------------ */
-
-const TESTIMONIALS = [
-  { q: "Delivered our brand website ahead of schedule with pixel-perfect design and rock-solid performance.", n: "Placeholder — Client", r: "Samvada Communication project" },
-  { q: "Nagaraja combines engineering rigor with a real eye for design. The dashboard just works.", n: "Placeholder — Client", r: "Namma Designs commission" },
-  { q: "Communication was clear from day one; every revision came back sharper than we imagined.", n: "Placeholder — Client", r: "Web development project" },
-];
-
-function Testimonials() {
-  const [i, setI] = useState(0);
-  return (
-    <section className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-      <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-        <SectionTitle eyebrow="Kind Words" title="Client Satisfaction" className="mb-0" />
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white/80">
-          <span className="flex gap-0.5" style={{ color: ACCENT }}>
-            {[...Array(5)].map((_, k) => <Star key={k} size={14} fill={ACCENT} strokeWidth={0} />)}
-          </span>
-          5.0 Rated
-        </div>
-      </div>
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-14">
-        <Quote className="absolute right-8 top-8 text-white/5" size={120} />
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-          >
-            <p className="font-display text-2xl leading-snug text-white md:text-4xl">"{TESTIMONIALS[i].q}"</p>
-            <div className="mt-8 flex items-center gap-4">
-              <div className="grid h-12 w-12 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70">
-                {TESTIMONIALS[i].n[0]}
-              </div>
-              <div>
-                <div className="text-white">{TESTIMONIALS[i].n}</div>
-                <div className="text-sm text-white/50">{TESTIMONIALS[i].r}</div>
-              </div>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-        <div className="mt-10 flex gap-2">
-          {TESTIMONIALS.map((_, k) => (
-            <button
-              key={k}
-              onClick={() => setI(k)}
-              aria-label={`Testimonial ${k + 1}`}
-              className={`h-1.5 rounded-full transition-all ${k === i ? "w-8" : "w-1.5 bg-white/20"}`}
-              style={{ background: k === i ? ACCENT : undefined }}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ------------------------ Achievements ------------------------ */
 
 const ACHIEVEMENTS = [
@@ -1021,7 +962,6 @@ export default function Portfolio() {
         <Projects />
         <Experience />
         <Certifications />
-        <Testimonials />
         <Achievements />
         <Skills />
         <CTA />
