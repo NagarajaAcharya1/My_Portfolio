@@ -283,7 +283,7 @@ function Hero() {
 /* ------------------------ Marquee ------------------------ */
 
 function Marquee() {
-  const items = ["10+ WEBSITES SHIPPED", "WEB • DESIGN • ROBOTICS", "BUILT IN MANGALORE", "IoT & EMBEDDED SYSTEMS", "OPEN TO FREELANCE"];
+  const items = ["10+ WEBSITES SHIPPED", "WEB • DESIGN • ROBOTICS", "3RD YEAR ENGINEERING STUDENT", "IoT & EMBEDDED SYSTEMS", "OPEN TO FREELANCE"];
   const row = [...items, ...items, ...items];
   return (
     <section className="relative border-y border-white/5 py-4 overflow-hidden">
@@ -565,7 +565,7 @@ function ProjectCard({ p }: { p: (typeof PROJECTS)[number] }) {
   const cardRef = useRef<HTMLElement>(null);
   const img = PROJECT_IMAGES[p.title];
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const el = cardRef.current;
     if (!el) return;
     const { left, top, width, height } = el.getBoundingClientRect();
