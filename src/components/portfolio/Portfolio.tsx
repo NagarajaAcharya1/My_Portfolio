@@ -284,7 +284,14 @@ function Hero() {
 /* ------------------------ Marquee ------------------------ */
 
 function Marquee() {
-  const items = ["10+ WEBSITES SHIPPED", "WEB • DESIGN • ROBOTICS", "3RD YEAR ENGINEERING STUDENT", "IoT & EMBEDDED SYSTEMS", "OPEN TO FREELANCE"];
+  const items = [
+    "Robotics & Automation",
+    "Website Development",
+    "SEO Optimization",
+    "Graphic Design",
+    "ROS2 & Embedded Systems",
+    "Responsive Design",
+  ];
   const row = [...items, ...items, ...items];
   return (
     <section className="relative border-y border-white/5 py-4 overflow-hidden">
