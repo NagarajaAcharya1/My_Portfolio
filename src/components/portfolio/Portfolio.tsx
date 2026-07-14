@@ -5,6 +5,7 @@ import {
   Code2, Palette, Cpu, Star, MapPin, Download, ChevronUp,
   Zap, Wrench, Sparkles, Layers, Rocket, Award, GraduationCap, Instagram, Facebook,
 } from "lucide-react";
+import { SiCanvas, SiCss } from "react-icons/si";
 import profileImg from "@/assets/my_pic.jpg";
 import resumePdf from "@/assets/NagarajaAcharya-Resume.pdf";
 import stampedImg from "@/assets/Public Stamped Control.png";
@@ -390,20 +391,51 @@ function About() {
 /* ------------------------ Tech stack ------------------------ */
 
 function TechStack() {
-  const stack = ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL", "Arduino", "Raspberry Pi", "Git", "Photoshop", "Canva"];
+  const stack = [
+    { label: "HTML5", logo: "https://cdn.simpleicons.org/html5/E34F26" },
+    { label: "CSS3", icon: SiCss },
+    { label: "JavaScript", logo: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+    { label: "PHP", logo: "https://cdn.simpleicons.org/php/777BB4" },
+    { label: "MySQL", logo: "https://cdn.simpleicons.org/mysql/4479A1" },
+    { label: "Arduino", logo: "https://cdn.simpleicons.org/arduino/00878F" },
+    { label: "Raspberry Pi", logo: "https://cdn.simpleicons.org/raspberrypi/A22846" },
+    { label: "Git", logo: "https://cdn.simpleicons.org/git/F05032" },
+    { label: "Photoshop", fallback: "Ps" },
+    { label: "Canva", icon: SiCanvas },
+  ];
+  const marqueeItems = [...stack, ...stack];
   return (
     <section className="mx-auto max-w-7xl px-6 py-10">
       <Reveal>
         <div className="mb-8 text-center text-xs uppercase tracking-[0.3em] text-white/40">Tools of the trade</div>
       </Reveal>
-      <div className="flex flex-wrap justify-center gap-3">
-        {stack.map((s, i) => (
-          <Reveal key={s} delay={i * 0.03}>
-            <div className="rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm text-white/70 transition-all hover:border-[color:var(--accent-hex,#baff29)] hover:text-white">
-              {s}
+      <div className="relative overflow-hidden border-y border-white/5 py-5">
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[color:var(--background)] to-transparent md:w-28" />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[color:var(--background)] to-transparent md:w-28" />
+        <div className="flex w-max animate-marquee-rtl gap-4 whitespace-nowrap">
+          {marqueeItems.map((item, i) => (
+            <div
+              key={`${item.label}-${i}`}
+              className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 text-sm text-white/75 transition-all hover:border-[color:var(--accent-hex,#baff29)] hover:text-white"
+            >
+              {item.icon ? (
+                <item.icon size={18} className="shrink-0" style={{ color: ACCENT }} />
+              ) : item.logo ? (
+                <img
+                  src={item.logo}
+                  alt={`${item.label} logo`}
+                  loading="lazy"
+                  className="h-5 w-5 shrink-0"
+                />
+              ) : (
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md bg-[#31a8ff]/15 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#31a8ff]">
+                  {item.fallback}
+                </span>
+              )}
+              <span>{item.label}</span>
             </div>
-          </Reveal>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -725,7 +757,7 @@ function Experience() {
               <div className="group grid grid-cols-1 gap-2 border-b border-white/5 py-6 md:grid-cols-[220px_1fr] md:gap-8 md:pl-8">
                 <div className="text-sm text-white/50">{e.when}</div>
                 <div>
-                  <div className="text-lg text-white md:text-xl">{e.role}</div>
+                  <div className="work-role text-lg md:text-xl">{e.role}</div>
                   <div className="mt-1 text-sm text-white/50">{e.org}</div>
                 </div>
               </div>
