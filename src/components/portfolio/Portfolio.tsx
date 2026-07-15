@@ -6,13 +6,21 @@ import {
   Zap, Wrench, Sparkles, Layers, Rocket, Award, GraduationCap, Instagram, Facebook,
 } from "lucide-react";
 import { SiCanvas, SiCss } from "react-icons/si";
-import profileImg from "@/assets/my_pic.jpg";
+import profileImg from "@/assets/my_pic.webp";
 import resumePdf from "@/assets/NagarajaAcharya-Resume.pdf";
-import stampedImg from "@/assets/Public Stamped Control.png";
-import royaltripuravasiniImg from "@/assets/royaltripuravasini.png";
-
-const screenshotUrl = (url: string) =>
-  `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+import stampedImg from "@/assets/Public Stamped Control.webp";
+import royaltripuravasiniImg from "@/assets/royaltripuravasini.webp";
+import maruthisilksImg from "@/assets/MaruthiSilks.webp";
+import mselectricalsImg from "@/assets/mselectricalss.webp";
+import sudeekshaImg from "@/assets/sudeeksha.webp";
+import saligramakayakingImg from "@/assets/saligramakayaking.webp";
+import sunstarequipmentsImg from "@/assets/sunstarequipments.webp";
+import samvadaImg from "@/assets/samvadacommunications.webp";
+import dotdesignImg from "@/assets/dotdesigntech.webp";
+import relianceaircontrolImg from "@/assets/relianceaircontrol.webp";
+import pumpmateImg from "@/assets/PumpMate.webp";
+import quicktoolsImg from "@/assets/quicktools_preview.webp";
+import agrotrackImg from "@/assets/AgroTrack.webp";
 
 const ACCENT = "#baff29";
 const LINKEDIN = "https://linkedin.com/in/nagaraja-acharya";
@@ -115,7 +123,7 @@ function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:py-5">
         <a href="#home" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-full border border-white/15 font-display text-lg text-white">N</span>
+          <span className="grid h-9 w-9 place-items-center rounded-full border border-white/15 font-display text-xl italic font-bold" style={{ color: ACCENT }}>N</span>
           <span className="hidden font-medium text-white md:inline">Nagaraja</span>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
@@ -177,7 +185,7 @@ function Navbar() {
 
 /* ------------------------ Hero ------------------------ */
 
-const ROLES = ["Web Development Lead", "Graphic Designer", "Robotics Engineer", "Founder, Namma Designs"];
+const ROLES = ["Web Developer", "Graphic Designer", "Robotics Engineer"];
 
 function Hero() {
   const [i, setI] = useState(0);
@@ -186,7 +194,7 @@ function Hero() {
     return () => clearInterval(t);
   }, []);
   return (
-    <section id="home" className="relative overflow-hidden pt-36 md:pt-44 pb-20 md:pb-28">
+    <section id="home" className="hero-grid relative overflow-hidden pt-36 md:pt-44 pb-20 md:pb-28">
       {/* glow */}
       <div className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
         style={{ background: `radial-gradient(circle, ${ACCENT}30, transparent 60%)` }} />
@@ -328,9 +336,9 @@ function Counter({ to, suffix = "" }: { to: number; suffix?: string }) {
 function Stats() {
   const stats = [
     { n: 10, s: "+", label: "Client Websites Delivered" },
-    { n: 7, s: "", label: "Certifications Earned" },
-    { n: 3, s: "+", label: "Live Projects Built" },
-    { n: 20, s: "", label: "Founder Age — Namma Designs" },
+    { n: 100, s: "%", label: "Responsive & Mobile-Friendly" },
+    { n: 5, s: "+", label: "Live Projects Built" },
+    { n: 5, s: "+", label: "Technologies Mastered" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-12 md:py-16">
@@ -364,11 +372,9 @@ function About() {
       <div className="grid gap-14 lg:grid-cols-2">
         <Reveal>
           <p className="text-xl leading-relaxed text-white/70">
-            Motivated Robotics & Automation Engineering student with hands-on experience in robotics,
-            embedded systems, web development, and digital product design. Currently{" "}
-            <span className="text-white">Web Development Lead & Graphic Designer</span> at Samvada Communication,
-            and <span className="text-white">Founder</span> of{" "}
-            <span className="rounded-md px-1.5" style={{ background: `${ACCENT}25`, color: ACCENT }}>Namma Designs</span>.
+            Motivated 3rd-year <span className="text-white">Robotics & Automation Engineering</span> student with hands-on experience in robotics,
+            <span className="text-white"> embedded systems</span>, web development, and <span className="text-white">digital product design</span>. Currently working as a{" "}
+            <span className="text-white">Web Developer</span> at <span className="text-white">Samvada Communications</span>.
           </p>
           <p className="mt-6 text-white/50">
             I care about work that ships — clean interfaces, resilient backends, and hardware that actually runs
@@ -481,15 +487,15 @@ function Services() {
 /* ------------------------ Client Websites ------------------------ */
 
 const CLIENT_SITES = [
-  { title: "Maruthi Silks Saligrama", url: "https://maruthisilkssaligrama.com", tag: "E-Commerce / Retail", localImg: null },
-  { title: "MS Electricals", url: "https://mselectricalss.com", tag: "Business / Services", localImg: null },
-  { title: "Sudeeksha", url: "https://sudeeksha.in", tag: "Business / Services", localImg: null },
+  { title: "Maruthi Silks Saligrama", url: "https://maruthisilkssaligrama.com", tag: "E-Commerce / Retail", localImg: maruthisilksImg },
+  { title: "MS Electricals", url: "https://mselectricalss.com", tag: "Business / Services", localImg: mselectricalsImg },
+  { title: "Sudeeksha", url: "https://sudeeksha.in", tag: "Business / Services", localImg: sudeekshaImg },
   { title: "Royal Tripura Vasini", url: "https://royaltripuravasini.com", tag: "Business / Services", localImg: royaltripuravasiniImg },
-  { title: "Saligrama Kayaking Point", url: "https://saligramakayaking.com", tag: "Tourism / Adventure", localImg: null },
-  { title: "Sunstar Kitchen Equipments", url: "https://sunstarequipments.in", tag: "Business / Products", localImg: null },
-  { title: "Samvada Communications", url: "https://samvadacommunications.com", tag: "Media / Communications", localImg: null },
-  { title: "Dot Design", url: "https://dotdesigntech.com", tag: "Design / Technology", localImg: null },
-  { title: "Reliance Air Control", url: "https://relianceaircontrol.com", tag: "Business / HVAC", localImg: null },
+  { title: "Saligrama Kayaking Point", url: "https://saligramakayaking.com", tag: "Tourism / Adventure", localImg: saligramakayakingImg },
+  { title: "Sunstar Kitchen Equipments", url: "https://sunstarequipments.in", tag: "Business / Products", localImg: sunstarequipmentsImg },
+  { title: "Samvada Communications", url: "https://samvadacommunications.com", tag: "Media / Communications", localImg: samvadaImg },
+  { title: "Dot Design", url: "https://dotdesigntech.com", tag: "Design / Technology", localImg: dotdesignImg },
+  { title: "Reliance Air Control", url: "https://relianceaircontrol.com", tag: "Business / HVAC", localImg: relianceaircontrolImg },
 ];
 
 
@@ -594,9 +600,9 @@ const PROJECTS = [
 ];
 
 const PROJECT_IMAGES: Record<string, string> = {
-  PumpMate: screenshotUrl("https://pumpmate.vercel.app/"),
-  QuickTools: screenshotUrl("https://www.quicktools.website/"),
-  AgroTrack: screenshotUrl("https://agrotrack-frontend.onrender.com/"),
+  PumpMate: pumpmateImg,
+  QuickTools: quicktoolsImg,
+  AgroTrack: agrotrackImg,
   "Public Stampede Control System": stampedImg,
 };
 
@@ -746,10 +752,9 @@ function Projects() {
 /* ------------------------ Experience ------------------------ */
 
 const EXPERIENCE = [
-  { when: "May 2025 – Present", role: "Web Development Lead & Graphic Designer", org: "Samvada Communication, Udupi" },
-  { when: "May 2025 – Present", role: "Founder & Creative Director", org: "Namma Designs, Kundapura" },
-  { when: "2024", role: "Robotics Engineering Intern", org: "Technical Career Education Pvt. Ltd. — AgroTrack" },
-  { when: "2024", role: "IoT & Web Development Intern", org: "Technical Career Education Pvt. Ltd. — Stampede Control" },
+  { when: "November 2025 – Present", role: "Web Developer & Graphic Designer", org: "Samvada Communications, Udupi", desc: "" },
+  { when: "09th Feb 2026 – 09th Mar 2026", role: "Robotics Engineering Intern", org: "Technical Career Education Pvt. Ltd. — AgroTrack", desc: "Built an agricultural monitoring robot with real-time sensor data and web-based updates." },
+  { when: "26th Mar 2026 – 26th Apr 2026", role: "IoT & Web Development Intern", org: "Technical Career Education Pvt. Ltd. — Stampede Control", desc: "Built an IoT-based crowd monitoring system with a real-time web dashboard for safety management." },
 ];
 
 function Experience() {
@@ -766,6 +771,7 @@ function Experience() {
                 <div>
                   <div className="work-role text-lg md:text-xl">{e.role}</div>
                   <div className="mt-1 text-sm text-white/50">{e.org}</div>
+                  {e.desc && <div className="mt-2 text-sm text-white/40">{e.desc}</div>}
                 </div>
               </div>
             </Reveal>
@@ -791,6 +797,11 @@ function Certifications() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 md:py-20">
       <SectionTitle eyebrow="Credentials" title="Certifications & Education" />
+
+      <div className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-white/50">
+        <span className="h-px w-8 bg-[color:var(--accent-hex,#baff29)]" />
+        Certifications
+      </div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {CERTS.map((c, i) => (
           <Reveal key={i} delay={(i % 3) * 0.06}>
@@ -806,17 +817,46 @@ function Certifications() {
           </Reveal>
         ))}
       </div>
-      <Reveal delay={0.2}>
-        <div className="mt-10 flex flex-wrap items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
-          <div className="grid h-12 w-12 place-items-center rounded-xl" style={{ background: `${ACCENT}18`, color: ACCENT }}>
-            <GraduationCap size={22} />
+
+      <div className="mt-12 mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-white/50">
+        <span className="h-px w-8 bg-[color:var(--accent-hex,#baff29)]" />
+        Education
+      </div>
+      <div className="flex flex-col gap-4">
+        <Reveal delay={0.05}>
+          <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <div className="grid h-12 w-12 place-items-center rounded-xl shrink-0" style={{ background: `${ACCENT}18`, color: ACCENT }}>
+              <GraduationCap size={22} />
+            </div>
+            <div className="flex-1">
+              <div className="text-white">B.E. Robotics & Automation Engineering</div>
+              <div className="mt-1 text-sm text-white/50">Sahyadri College of Engineering & Management, Mangalore · 2024–Present · 5th Semester</div>
+            </div>
           </div>
-          <div>
-            <div className="text-white">B.E. Robotics & Automation Engineering</div>
-            <div className="text-sm text-white/50">Sahyadri College of Engineering & Management, Mangalore · 2024–Present · 4th Semester</div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <div className="grid h-12 w-12 place-items-center rounded-xl shrink-0" style={{ background: `${ACCENT}18`, color: ACCENT }}>
+              <GraduationCap size={22} />
+            </div>
+            <div className="flex-1">
+              <div className="text-white">Pre-University Course · Science (PCMC)</div>
+              <div className="mt-1 text-sm text-white/50">Government Pre-University College, Kundapura · Jun 2022 – Apr 2024 · Grade: 86%</div>
+            </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+            <div className="grid h-12 w-12 place-items-center rounded-xl shrink-0" style={{ background: `${ACCENT}18`, color: ACCENT }}>
+              <GraduationCap size={22} />
+            </div>
+            <div className="flex-1">
+              <div className="text-white">SSLC · Grade: 92.64%</div>
+              <div className="mt-1 text-sm text-white/50">Government High School, Chittur · 2022</div>
+            </div>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }
@@ -824,10 +864,10 @@ function Certifications() {
 /* ------------------------ Achievements ------------------------ */
 
 const ACHIEVEMENTS = [
-  { t: "10+ client websites delivered", d: "As Web Development Lead at Samvada Communication.", i: Rocket },
-  { t: "Founded Namma Designs at 20", d: "Building a design studio while studying full-time.", i: Sparkles },
+  { t: "10+ client websites delivered", d: "As Web Developer at Samvada Communications.", i: Rocket },
   { t: "Built PumpMate independently", d: "Production-grade, multi-module fuel-station platform.", i: Wrench },
   { t: "7 industry certifications", d: "Across web dev, design, cybersecurity, and AI.", i: Award },
+  { t: "Robotics & IoT projects", d: "Real-world automation and embedded systems deployments.", i: Sparkles },
 ];
 
 function Achievements() {
