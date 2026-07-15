@@ -124,7 +124,7 @@ function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:py-5">
         <a href="#home" className="flex items-center gap-2">
           <span className="grid h-9 w-9 place-items-center rounded-full border border-white/15 font-display text-xl italic font-bold" style={{ color: ACCENT }}>N</span>
-          <span className="hidden font-medium text-white md:inline">Nagaraja</span>
+          <span className="font-medium text-white font-display italic">Nagaraja</span>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((n) => (
@@ -408,7 +408,6 @@ function TechStack() {
     { label: "HTML5", logo: "https://cdn.simpleicons.org/html5/E34F26" },
     { label: "CSS3", icon: SiCss },
     { label: "JavaScript", logo: "https://cdn.simpleicons.org/javascript/F7DF1E" },
-    { label: "PHP", logo: "https://cdn.simpleicons.org/php/777BB4" },
     { label: "MySQL", logo: "https://cdn.simpleicons.org/mysql/4479A1" },
     { label: "Arduino", logo: "https://cdn.simpleicons.org/arduino/00878F" },
     { label: "Raspberry Pi", logo: "https://cdn.simpleicons.org/raspberrypi/A22846" },
@@ -962,42 +961,45 @@ function CTA() {
 function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black/30">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-6 py-8">
         <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-1">
-            <div className="font-display text-2xl text-white">Nagaraja</div>
-            <div className="mt-2 text-sm text-white/50">Robotics Engineer · Web Developer · Designer</div>
+        <div className="md:col-span-1">
+            <a href="#home" className="flex items-center gap-2">
+              <span className="grid h-9 w-9 place-items-center rounded-full border font-display text-xl italic font-bold shrink-0" style={{ borderColor: ACCENT, color: ACCENT }}>N</span>
+              <span className="font-display text-xl italic font-medium text-white">Nagaraja</span>
+            </a>
+            <div className="mt-3 text-sm text-white/50">Robotics Engineer · Web Developer · Graphic Designer</div>
           </div>
           <div>
             <div className="mb-4 text-xs uppercase tracking-widest text-white/40">About</div>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li><a href="#about" className="hover:text-white">Bio</a></li>
-              <li><a href="#experience" className="hover:text-white">Experience</a></li>
-              <li><a href="#skills" className="hover:text-white">Skills</a></li>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#about" className="text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors">Bio</a></li>
+              <li><a href="#experience" className="text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors">Experience</a></li>
+              <li><a href="#skills" className="text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors">Skills</a></li>
+              <li><a href="#work" className="text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors">Design & Creative Work</a></li>
             </ul>
           </div>
           <div>
             <div className="mb-4 text-xs uppercase tracking-widest text-white/40">Services</div>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li>Web Development</li>
-              <li>Graphic Design</li>
-              <li>IoT & Embedded</li>
+            <ul className="space-y-2 text-sm">
+              <li className="text-white/70">Web Development</li>
+              <li className="text-white/70">Graphic Design</li>
+              <li className="text-white/70">IoT & Embedded</li>
             </ul>
           </div>
           <div>
             <div className="mb-4 text-xs uppercase tracking-widest text-white/40">Contact</div>
-            <ul className="space-y-2 text-sm text-white/70">
-              <li><a href={LINKEDIN} target="_blank" rel="noreferrer" className="hover:text-white">LinkedIn</a></li>
-              <li><a href={GITHUB} target="_blank" rel="noreferrer" className="hover:text-white">GitHub</a></li>
-              <li><a href={INSTAGRAM} target="_blank" rel="noreferrer" className="hover:text-white">Instagram</a></li>
-              <li><a href={FACEBOOK} target="_blank" rel="noreferrer" className="hover:text-white">Facebook</a></li>
-              <li><a href={EMAIL} className="hover:text-white">Email</a></li>
+            <ul className="space-y-2 text-sm">
+              <li><a href={LINKEDIN} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors"><Linkedin size={14} />LinkedIn</a></li>
+              <li><a href={GITHUB} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors"><Github size={14} />GitHub</a></li>
+              <li><a href={INSTAGRAM} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors"><Instagram size={14} />Instagram</a></li>
+              <li><a href={FACEBOOK} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors"><Facebook size={14} />Facebook</a></li>
+              <li><a href={EMAIL} className="flex items-center gap-2 text-white/70 hover:text-[color:var(--accent-hex,#baff29)] transition-colors"><Mail size={14} />Email</a></li>
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/40 md:flex-row md:items-center">
+        <div className="mt-6 border-t border-white/10 pt-6 text-xs text-white/40">
           <span>© 2026 Nagaraja. All rights reserved.</span>
-          <span>Mangalore, Karnataka, India · English · Kannada</span>
         </div>
       </div>
     </footer>
