@@ -22,6 +22,29 @@ import pumpmateImg from "@/assets/PumpMate.webp";
 import quicktoolsImg from "@/assets/quicktools_preview.webp";
 import agrotrackImg from "@/assets/AgroTrack.webp";
 
+// AI Gen posters
+import aiCoastalUpdated from "@/assets/AI Gen/Coastal Kairuchi_Updated02.webp";
+import aiCoastalGO from "@/assets/AI Gen/Coastal_Kairuchi_GO_poster.webp";
+import aiGrandOpening from "@/assets/AI Gen/GrandOpeningPoster.webp";
+import aiIcecream from "@/assets/AI Gen/IcecreamMarketing Design.webp";
+import aiImage1 from "@/assets/AI Gen/Image 1 (14).webp";
+import aiMblShop from "@/assets/AI Gen/MblShop_Marketing Design.webp";
+import aiMGIceCream from "@/assets/AI Gen/MG Ice Creams - Magic Sundae Premium Poster (1).webp";
+import aiPrintDesign from "@/assets/AI Gen/PrintDesign.webp";
+import aiStandPrint from "@/assets/AI Gen/StandPrintDesign.webp";
+import aiWedding from "@/assets/AI Gen/WED_2026 (1).webp";
+
+// Photoshop posters
+import psCKPoster from "@/assets/Photoshop/CK_Poster.webp";
+import psCoastalKairuchi from "@/assets/Photoshop/Coastal_Kairuchi.jpg.webp";
+import psFriendshipDay from "@/assets/Photoshop/Friendship_Day-NewP.webp";
+import psKannadaRajyothsava from "@/assets/Photoshop/Kannada_Rajyothsava_Updated.webp";
+import psKrishnaJanmastami from "@/assets/Photoshop/krishna_janmastami_kannada.webp";
+import psKundaDictionary from "@/assets/Photoshop/kunda_kannada_dictionary_final.webp";
+import psMahalakshmi from "@/assets/Photoshop/MahalakshmiPoster.webp";
+import psMobileX from "@/assets/Photoshop/MobileX_Kundapura.webp";
+import psSCHiring from "@/assets/Photoshop/SC_HiringPoster.webp";
+
 const ACCENT = "#baff29";
 const LINKEDIN = "https://linkedin.com/in/nagaraja-acharya";
 const GITHUB = "https://github.com/NagarajaAcharya1";
@@ -483,6 +506,102 @@ function Services() {
   );
 }
 
+/* ------------------------ Design & Creative Work ------------------------ */
+
+const AI_POSTERS = [
+  { img: aiCoastalUpdated, tag: "FOOD & RESTAURANT" },
+  { img: aiCoastalGO, tag: "GRAND OPENING" },
+  { img: aiGrandOpening, tag: "GRAND OPENING" },
+  { img: aiIcecream, tag: "FOOD & DESSERTS" },
+  { img: aiImage1, tag: "MARKETING" },
+  { img: aiMblShop, tag: "MOBILE & TECH" },
+  { img: aiMGIceCream, tag: "FOOD & DESSERTS" },
+  { img: aiPrintDesign, tag: "PRINT DESIGN" },
+  { img: aiStandPrint, tag: "PRINT DESIGN" },
+  { img: aiWedding, tag: "WEDDING" },
+];
+
+const PS_POSTERS = [
+  { img: psCKPoster, tag: "FOOD & RESTAURANT" },
+  { img: psCoastalKairuchi, tag: "FOOD & RESTAURANT" },
+  { img: psFriendshipDay, tag: "FESTIVAL" },
+  { img: psKannadaRajyothsava, tag: "FESTIVAL" },
+  { img: psKrishnaJanmastami, tag: "FESTIVAL" },
+  { img: psKundaDictionary, tag: "CULTURAL" },
+  { img: psMahalakshmi, tag: "FESTIVAL" },
+  { img: psMobileX, tag: "MOBILE & TECH" },
+  { img: psSCHiring, tag: "BUSINESS PROMO" },
+];
+
+function PosterMarqueeRow({ posters }: { posters: typeof AI_POSTERS }) {
+  const doubled = [...posters, ...posters];
+  const duration = `${posters.length * 4}s`;
+  return (
+    <div
+      className="flex gap-4 w-max"
+      style={{ animation: `marquee-ltr ${duration} linear infinite` }}
+    >
+      {doubled.map((p, i) => (
+        <div
+          key={i}
+          className="group relative flex-shrink-0 w-[220px] sm:w-[260px] overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all duration-500 hover:border-[#baff29] hover:shadow-[0_0_24px_2px_rgba(186,255,41,0.12)]"
+        >
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <img
+              src={p.img}
+              alt={p.tag}
+              loading="lazy"
+              className="h-full w-full object-cover opacity-80 md:grayscale transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100 md:group-hover:grayscale-0"
+            />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function DesignWork() {
+  const [active, setActive] = useState<"ai" | "ps">("ai");
+  const posters = active === "ai" ? AI_POSTERS : PS_POSTERS;
+  return (
+    <section id="design" className="py-10 md:py-12 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
+          <SectionTitle eyebrow="Creative" title={<>Design &amp; <span className="italic text-white/60">Creative Work</span></>} className="mb-0" />
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1">
+            {(["ai", "ps"] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActive(tab)}
+                className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300"
+                style={active === tab ? { background: ACCENT, color: "#000" } : { color: "rgba(255,255,255,0.5)" }}
+              >
+                {tab === "ai" ? "AI-Assisted Design" : "Photoshop"}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="relative"
+        >
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 md:w-40" style={{ background: "linear-gradient(to right, var(--background), transparent)" }} />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 md:w-40" style={{ background: "linear-gradient(to left, var(--background), transparent)" }} />
+          <div className="overflow-hidden">
+            <PosterMarqueeRow posters={posters} />
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </section>
+  );
+}
+
 /* ------------------------ Client Websites ------------------------ */
 
 const CLIENT_SITES = [
@@ -752,8 +871,8 @@ function Projects() {
 
 const EXPERIENCE = [
   { when: "November 2025 – Present", role: "Web Developer & Graphic Designer", org: "Samvada Communications, Udupi", desc: "" },
-  { when: "09th Feb 2026 – 09th Mar 2026", role: "Robotics Engineering Intern", org: "Technical Career Education Pvt. Ltd. — AgroTrack", desc: "Built an agricultural monitoring robot with real-time sensor data and web-based updates." },
-  { when: "26th Mar 2026 – 26th Apr 2026", role: "IoT & Web Development Intern", org: "Technical Career Education Pvt. Ltd. — Stampede Control", desc: "Built an IoT-based crowd monitoring system with a real-time web dashboard for safety management." },
+  { when: "09th Feb 2026 – 09th Mar 2026", role: "Robotics Engineering Intern", org: "Technical Career Education Pvt. Ltd.", project: "AgroTrack – Agricultural Monitoring System", desc: "Developed an agricultural monitoring system with real-time sensor monitoring and a web dashboard." },
+  { when: "26th Mar 2026 – 26th Apr 2026", role: "IoT & Web Development Intern", org: "Technical Career Education Pvt. Ltd.", project: "Stampede Control – IoT Crowd Monitoring Dashboard", desc: "Developed an IoT-based crowd monitoring system with a real-time web dashboard." },
 ];
 
 function Experience() {
@@ -768,8 +887,8 @@ function Experience() {
               <div className="group grid grid-cols-1 gap-2 border-b border-white/5 py-6 md:grid-cols-[220px_1fr] md:gap-8 md:pl-8">
                 <div className="text-sm text-white/50">{e.when}</div>
                 <div>
-                  <div className="work-role text-lg md:text-xl">{e.role}</div>
-                  <div className="mt-1 text-sm text-white/50">{e.org}</div>
+                  <div className="work-role text-lg md:text-xl">{(e as any).project ?? e.role}</div>
+                  <div className="mt-1 text-sm text-white/50">{(e as any).project ? `${e.role} • ${e.org}` : e.org}</div>
                   {e.desc && <div className="mt-2 text-sm text-white/40">{e.desc}</div>}
                 </div>
               </div>
@@ -1040,6 +1159,7 @@ export default function Portfolio() {
         <TechStack />
         <Services />
         <ClientWebsites />
+        <DesignWork />
         <Projects />
         <Experience />
         <Certifications />
