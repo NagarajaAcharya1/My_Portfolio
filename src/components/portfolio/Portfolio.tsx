@@ -509,97 +509,49 @@ function Services() {
 
 /* ------------------------ Design & Creative Work ------------------------ */
 
-const AI_POSTERS = [
-  { img: aiCoastalUpdated, tag: "FOOD & RESTAURANT" },
-  { img: aiCoastalGO, tag: "GRAND OPENING" },
-  { img: aiGrandOpening, tag: "GRAND OPENING" },
-  { img: aiIcecream, tag: "FOOD & DESSERTS" },
-  { img: aiImage1, tag: "MARKETING" },
-  { img: aiMblShop, tag: "MOBILE & TECH" },
-  { img: aiMGIceCream, tag: "FOOD & DESSERTS" },
-  { img: aiPrintDesign, tag: "PRINT DESIGN" },
-  { img: aiStandPrint, tag: "PRINT DESIGN" },
-  { img: aiWedding, tag: "WEDDING" },
+const ALL_POSTERS = [
+  aiCoastalUpdated, aiCoastalGO, aiGrandOpening, aiIcecream, aiImage1,
+  aiMblShop, aiMGIceCream, aiPrintDesign, aiStandPrint, aiWedding,
+  psCKPoster, psCoastalKairuchi, psFriendshipDay, psKannadaRajyothsava,
+  psKrishnaJanmastami, psKundaDictionary, psMahalakshmi, psMobileX, psSCHiring,
 ];
-
-const PS_POSTERS = [
-  { img: psCKPoster, tag: "FOOD & RESTAURANT" },
-  { img: psCoastalKairuchi, tag: "FOOD & RESTAURANT" },
-  { img: psFriendshipDay, tag: "FESTIVAL" },
-  { img: psKannadaRajyothsava, tag: "FESTIVAL" },
-  { img: psKrishnaJanmastami, tag: "FESTIVAL" },
-  { img: psKundaDictionary, tag: "CULTURAL" },
-  { img: psMahalakshmi, tag: "FESTIVAL" },
-  { img: psMobileX, tag: "MOBILE & TECH" },
-  { img: psSCHiring, tag: "BUSINESS PROMO" },
-];
-
-function PosterMarqueeRow({ posters }: { posters: typeof AI_POSTERS }) {
-  const doubled = [...posters, ...posters];
-  const duration = `${posters.length * 4}s`;
-  return (
-    <div
-      className="flex gap-4 w-max"
-      style={{ animation: `marquee-ltr ${duration} linear infinite` }}
-    >
-      {doubled.map((p, i) => (
-        <div
-          key={i}
-          className="group relative flex-shrink-0 w-[220px] sm:w-[260px] overflow-hidden rounded-2xl border border-white/10 bg-[#141414] transition-all duration-500 hover:border-[#baff29] hover:shadow-[0_0_24px_2px_rgba(186,255,41,0.12)]"
-        >
-          <div className="relative aspect-[4/5] overflow-hidden">
-            <img
-              src={p.img}
-              alt={p.tag}
-              loading="lazy"
-              className="h-full w-full object-cover opacity-80 transition-[transform,opacity] duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
-              style={{ willChange: "transform" }}
-            />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 function DesignWork() {
-  const [active, setActive] = useState<"ai" | "ps">("ai");
-  const posters = active === "ai" ? AI_POSTERS : PS_POSTERS;
+  const row1 = ALL_POSTERS.slice(0, 10);
+  const row2 = ALL_POSTERS.slice(10);
   return (
-    <section id="design" className="py-10 md:py-12 overflow-hidden">
+    <section id="design" className="py-16 md:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-8 flex flex-wrap items-end justify-between gap-6">
-          <SectionTitle eyebrow="Creative" title={<>Design &amp; <span className="italic text-white/60">Creative Work</span></>} className="mb-0" />
-          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1">
-            {(["ai", "ps"] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActive(tab)}
-                className="rounded-full px-5 py-2 text-sm font-medium transition-all duration-300"
-                style={active === tab ? { background: ACCENT, color: "#000" } : { color: "rgba(255,255,255,0.5)" }}
-              >
-                {tab === "ai" ? "AI-Assisted Design" : "Photoshop"}
-              </button>
+        <SectionTitle eyebrow="Creative" title={<>Design &amp; <span className="italic text-white/60">Creative Work</span></>} />
+      </div>
+      <div className="relative flex flex-col gap-5">
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 md:w-40" style={{ background: "linear-gradient(to right, var(--background), transparent)" }} />
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 md:w-40" style={{ background: "linear-gradient(to left, var(--background), transparent)" }} />
+        {/* row 1 — left to right */}
+        <div className="overflow-hidden">
+          <div className="flex gap-4 w-max" style={{ animation: "marquee-ltr 40s linear infinite" }}>
+            {[...row1, ...row1].map((img, i) => (
+              <div key={i} className="group flex-shrink-0 w-[200px] sm:w-[240px] overflow-hidden rounded-2xl border border-white/10 bg-[#141414] hover:border-[#baff29] transition-colors duration-300">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img src={img} loading="lazy" alt="design work" className="h-full w-full object-cover opacity-80 transition-[transform,opacity] duration-500 group-hover:scale-[1.04] group-hover:opacity-100" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* row 2 — right to left */}
+        <div className="overflow-hidden">
+          <div className="flex gap-4 w-max" style={{ animation: "marquee-rtl 36s linear infinite" }}>
+            {[...row2, ...row2].map((img, i) => (
+              <div key={i} className="group flex-shrink-0 w-[200px] sm:w-[240px] overflow-hidden rounded-2xl border border-white/10 bg-[#141414] hover:border-[#baff29] transition-colors duration-300">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img src={img} loading="lazy" alt="design work" className="h-full w-full object-cover opacity-80 transition-[transform,opacity] duration-500 group-hover:scale-[1.04] group-hover:opacity-100" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </div>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={active}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="relative"
-        >
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 md:w-40" style={{ background: "linear-gradient(to right, var(--background), transparent)" }} />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 md:w-40" style={{ background: "linear-gradient(to left, var(--background), transparent)" }} />
-          <div className="overflow-hidden">
-            <PosterMarqueeRow posters={posters} />
-          </div>
-        </motion.div>
-      </AnimatePresence>
     </section>
   );
 }
