@@ -285,7 +285,8 @@ function Hero() {
               <img
                 src={profileImg}
                 alt="Nagaraja Acharya profile photo"
-                className="h-full w-full object-cover opacity-60 md:grayscale transition-all duration-700 group-hover:scale-110 group-hover:opacity-90 md:group-hover:grayscale-0"
+                className="h-full w-full object-cover opacity-60 transition-[transform,opacity] duration-700 group-hover:scale-110 group-hover:opacity-90"
+                style={{ willChange: "transform" }}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             </div>
@@ -551,7 +552,8 @@ function PosterMarqueeRow({ posters }: { posters: typeof AI_POSTERS }) {
               src={p.img}
               alt={p.tag}
               loading="lazy"
-              className="h-full w-full object-cover opacity-80 md:grayscale transition-all duration-500 group-hover:scale-[1.03] group-hover:opacity-100 md:group-hover:grayscale-0"
+              className="h-full w-full object-cover opacity-80 transition-[transform,opacity] duration-500 group-hover:scale-[1.03] group-hover:opacity-100"
+              style={{ willChange: "transform" }}
             />
           </div>
         </div>
@@ -640,7 +642,8 @@ function ClientMarqueeRow({ sites, reverse = false }: { sites: typeof CLIENT_SIT
               src={site.localImg ?? screenshotUrl(site.url)}
             alt={`${site.title} preview`}
               loading="lazy"
-              className="h-full w-full object-cover object-top opacity-60 md:grayscale transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-90 md:group-hover/card:grayscale-0"
+              className="h-full w-full object-cover object-top opacity-60 transition-[transform,opacity] duration-700 group-hover/card:scale-110 group-hover/card:opacity-90"
+              style={{ willChange: "transform" }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#141414] to-transparent" />
             <span className="absolute bottom-3 left-4 text-[10px] font-medium tracking-widest uppercase" style={{ color: ACCENT }}>{site.tag}</span>
@@ -768,7 +771,8 @@ function ProjectCard({ p }: { p: (typeof PROJECTS)[number] }) {
             src={img}
             alt={p.title}
             loading="lazy"
-            className="tilt-img h-full w-full object-cover opacity-60 md:grayscale group-hover:opacity-90 md:group-hover:grayscale-0"
+            className="tilt-img h-full w-full object-cover opacity-60 group-hover:opacity-90"
+            style={{ transition: "transform 0.15s cubic-bezier(0.22,1,0.36,1), opacity 0.4s", willChange: "transform" }}
             style={{ transition: "transform 0.15s cubic-bezier(0.22,1,0.36,1), opacity 0.4s, filter 0.4s", willChange: "transform" }}
           />
         ) : (
@@ -1117,7 +1121,7 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-6 border-t border-white/10 pt-6 text-xs text-white/40">
+        <div className="mt-6 border-t border-white/10 pt-6 text-xs text-white/40 text-center">
           <span>© 2026 Nagaraja. All rights reserved.</span>
         </div>
       </div>
